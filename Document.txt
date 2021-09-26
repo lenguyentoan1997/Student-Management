@@ -1,0 +1,24 @@
+This is the last exercise of C# on Student Management displayed through the Console Application
+
+Fields: id,name,address,email,phone,gender,dob,note,mark
+
+Bound by input fields Ex:
+Id: Number
+Name: aaaa aaa
+Emal: aaaa@aaa
+Phone: litmited to 10 numbers
+gender: male/female
+dob:19/06/1997
+mark: float Number
+
+Functions
+1.Add Student
+2.Edit Infomation Student By Id
+3.Search Student By Name Or Id
+4.Display Student
+5.Delete Student
+6.Sort Student By Id,Mark or Name
+7.End Program and save File Students.dat
+
+When starting the program will automatically read the file if there is no file to read,It will automatically create a new file
+file name: Students.dat
