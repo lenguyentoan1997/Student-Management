@@ -5,3 +5,10 @@ H:\Software\C#\StudentManagement\StudentManagement\StudentManagement\obj\Debug\S
 H:\Software\C#\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.csproj.CoreCompileInputs.cache
 H:\Software\C#\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.exe
 H:\Software\C#\StudentManagement\StudentManagement\StudentManagement\obj\Debug\StudentManagement.pdb
+C:\Users\nh0xq\Desktop\New folder\Student-Management\StudentManagement\StudentManagement\bin\Debug\StudentManagement.exe.config
+C:\Users\nh0xq\Desktop\New folder\Student-Management\StudentManagement\StudentManagement\bin\Debug\StudentManagement.exe
+C:\Users\nh0xq\Desktop\New folder\Student-Management\StudentManagement\StudentManagement\bin\Debug\StudentManagement.pdb
+C:\Users\nh0xq\Desktop\New folder\Student-Management\StudentManagement\StudentManagement\obj\Debug\StudentManagement.csproj.AssemblyReference.cache
+C:\Users\nh0xq\Desktop\New folder\Student-Management\StudentManagement\StudentManagement\obj\Debug\StudentManagement.csproj.CoreCompileInputs.cache
+C:\Users\nh0xq\Desktop\New folder\Student-Management\StudentManagement\StudentManagement\obj\Debug\StudentManagement.exe
+C:\Users\nh0xq\Desktop\New folder\Student-Management\StudentManagement\StudentManagement\obj\Debug\StudentManagement.pdb

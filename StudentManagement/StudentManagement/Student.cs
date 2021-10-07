@@ -1,42 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentManagement
 {
     class Student
     {
-        private int id;
-        private string fullName, address, email, phone, gender, dOB, note;
-        float mark;
+        private int _id;
+        private string _fullName, _address, _email, _phone, _gender, _dOB, _note;
+        private float _mark;
 
         public Student(int studentId, string studentName, string studentAddress, string studentEmail, string studentPhone, string studentGender, string studentDOB, string studentNote, float studentMark)
         {
-            id = studentId;
-            fullName = studentName;
-            address = studentAddress;
-            email = studentEmail;
-            phone = studentPhone;
-            gender = studentGender;
-            dOB = studentDOB;
-            note = studentNote;
-            mark = studentMark;
+            _id = studentId;
+            _fullName = studentName;
+            _address = studentAddress;
+            _email = studentEmail;
+            _phone = studentPhone;
+            _gender = studentGender;
+            _dOB = studentDOB;
+            _note = studentNote;
+            _mark = studentMark;
         }
 
         public Student() { }
 
-        public int Id { get => id; set => id = value; }
-        public string FullName { get => fullName; set => fullName = value; }
-        public string Address { get => address; set => address = value; }
-        public string Email { get => email; set => email = value; }
-        public string Phone { get => phone; set => phone = value; }
-        public string Gender { get => gender; set => gender = value; }
-        public string DOB { get => dOB; set => dOB = value; }
-        public string Note { get => note; set => note = value; }
-        public float Mark { get => mark; set => mark = value; }
+        public int Id { get => _id; set => _id = value; }
+        public string FullName { get => _fullName; set => _fullName = value; }
+        public string Address { get => _address; set => _address = value; }
+        public string Email { get => _email; set => _email = value; }
+        public string Phone { get => _phone; set => _phone = value; }
+        public string Gender { get => _gender; set => _gender = value; }
+        public string DOB { get => _dOB; set => _dOB = value; }
+        public string Note { get => _note; set => _note = value; }
+        public float Mark { get => _mark; set => _mark = value; }
 
-        public void Show() => Console.WriteLine("{0,-5}{1,15}{2,30}{3,30}{4,25}{5,15}{6,20}{7,50}{8,15}\n", id, fullName, address, email, phone, gender, dOB, note, mark);
+        public void Show() => Console.WriteLine("{0,-5}{1,15}{2,30}{3,30}{4,25}{5,15}{6,20}{7,50}{8,15}\n", _id, _fullName, _address, _email, _phone, _gender, _dOB, _note, _mark);
     }
 }

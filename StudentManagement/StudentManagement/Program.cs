@@ -21,9 +21,9 @@ namespace StudentManagement
             program.RunProgram();
         }
 
-        private List<Student> StudentsList;
+        private List<Student> _listStudent;
 
-        private Program() => StudentsList = new List<Student>();
+        private Program() => _listStudent = new List<Student>();
 
         private void MenuProgram()
         {
@@ -135,7 +135,7 @@ namespace StudentManagement
         /*
          * Check Student ID exists
          */
-        private bool IsCheckId(int id) => StudentsList.Any(student => student.Id == id) ? true : false;
+        private bool IsCheckId(int id) => _listStudent.Any(student => student.Id == id) ? true : false;
 
         /*
          * Add Student
@@ -256,7 +256,7 @@ namespace StudentManagement
                             }
 
                             Student student = new Student(studentId, studentName, studentAddress, studentEmail, studentPhone, studentGender, studentDOB, studentNote, studentMark);
-                            StudentsList.Add(student);
+                            _listStudent.Add(student);
 
                             countStudent++;
                         }
@@ -292,7 +292,7 @@ namespace StudentManagement
         private void DisplayStudent()
         {
             DisplayHeaderStudent();
-            StudentsList.ForEach(student => student.Show());
+            _listStudent.ForEach(student => student.Show());
         }
 
         /*
@@ -313,7 +313,7 @@ namespace StudentManagement
                     {
                         int studentId = int.Parse(id);
                         //Check if student id exists
-                        var studentInformation = StudentsList.FirstOrDefault(student => student.Id == studentId);
+                        var studentInformation = _listStudent.FirstOrDefault(student => student.Id == studentId);
                         if (studentInformation != null)
                         {
                             //Update Student Name
@@ -483,7 +483,7 @@ namespace StudentManagement
                         {
                             Console.Write("Please Enter Student Name: ");
                             string studentName = Console.ReadLine();
-                            var studentInforListByName = StudentsList.FindAll(student => student.FullName == studentName);
+                            var studentInforListByName = _listStudent.FindAll(student => student.FullName == studentName);
                             if (studentInforListByName.Count != 0)
                             {
                                 DisplayHeaderStudent();
@@ -497,7 +497,7 @@ namespace StudentManagement
                             Console.Write("Please Enter Student ID: ");
                             int studentId = int.Parse(Console.ReadLine());
                             //check Student By ID
-                            var studentInforListById = StudentsList.First(student => student.Id == studentId);
+                            var studentInforListById = _listStudent.First(student => student.Id == studentId);
 
                             if (studentInforListById != null)
                             {
@@ -531,7 +531,7 @@ namespace StudentManagement
                     //Find Student By ID
                     try
                     {
-                        var resultInforStudent = StudentsList.First(student => student.Id == studentId);
+                        var resultInforStudent = _listStudent.First(student => student.Id == studentId);
                         while (true)
                         {
                             DisplayHeaderStudent();
@@ -545,7 +545,7 @@ namespace StudentManagement
                             if (chooseYesNo.Equals("yes"))
                             {
                                 //Delete Student
-                                StudentsList.Remove(resultInforStudent);
+                                _listStudent.Remove(resultInforStudent);
                                 Console.WriteLine("Deleted Successfully Student ID:{0}", studentId);
                                 break;
                             }
@@ -645,16 +645,16 @@ namespace StudentManagement
         {
             DisplayHeaderStudent();
             //Y < X 
-            StudentsList.Sort((studentX, studentY) => studentY.Id.CompareTo(studentX.Id));
-            StudentsList.ForEach(student => student.Show());
+            _listStudent.Sort((studentX, studentY) => studentY.Id.CompareTo(studentX.Id));
+            _listStudent.ForEach(student => student.Show());
         }
         //Sort Student By Mark Ascending
         private void SortStudentByIdAsc()
         {
             DisplayHeaderStudent();
             //X < Y
-            StudentsList.Sort((studentX, studentY) => studentX.Id.CompareTo(studentY.Id));
-            StudentsList.ForEach(student => student.Show());
+            _listStudent.Sort((studentX, studentY) => studentX.Id.CompareTo(studentY.Id));
+            _listStudent.ForEach(student => student.Show());
         }
 
         /*
@@ -696,16 +696,16 @@ namespace StudentManagement
         {
             DisplayHeaderStudent();
             //Y < X 
-            StudentsList.Sort((studentX, studentY) => studentY.Mark.CompareTo(studentX.Mark));
-            StudentsList.ForEach(student => student.Show());
+            _listStudent.Sort((studentX, studentY) => studentY.Mark.CompareTo(studentX.Mark));
+            _listStudent.ForEach(student => student.Show());
         }
         //Sort Student By Mark Ascending
         private void SortStudentByMarkAsc()
         {
             DisplayHeaderStudent();
             //X < Y
-            StudentsList.Sort((studentX, studentY) => studentX.Mark.CompareTo(studentY.Mark));
-            StudentsList.ForEach(student => student.Show());
+            _listStudent.Sort((studentX, studentY) => studentX.Mark.CompareTo(studentY.Mark));
+            _listStudent.ForEach(student => student.Show());
         }
 
         /*
@@ -747,16 +747,16 @@ namespace StudentManagement
         {
             DisplayHeaderStudent();
             //X < Y
-            StudentsList.Sort((studentX, studentY) => studentX.FullName.CompareTo(studentY.FullName));
-            StudentsList.ForEach(student => student.Show());
+            _listStudent.Sort((studentX, studentY) => studentX.FullName.CompareTo(studentY.FullName));
+            _listStudent.ForEach(student => student.Show());
         }
         //Sort Student By Name Descending
         private void SortStudentByNameDesc()
         {
             DisplayHeaderStudent();
             //Y < X
-            StudentsList.Sort((studentX, studentY) => studentY.FullName.CompareTo(studentX.FullName));
-            StudentsList.ForEach(student => student.Show());
+            _listStudent.Sort((studentX, studentY) => studentY.FullName.CompareTo(studentX.FullName));
+            _listStudent.ForEach(student => student.Show());
         }
 
         /*
@@ -787,7 +787,7 @@ namespace StudentManagement
                 File.WriteAllText(fileStudent, headerStudent);
 
                 //Write Student Information
-                StudentsList.ForEach(student =>
+                _listStudent.ForEach(student =>
                 File.AppendAllText(fileStudent, string.Format("\n{0,-5}{1,15}{2,30}{3,30}{4,25}{5,15}{6,20}{7,50}{8,15}\n", student.Id, student.FullName, student.Address, student.Email, student.Phone, student.Gender, student.DOB, student.Note, student.Mark)));
             }
             catch (Exception exception)
@@ -819,7 +819,7 @@ namespace StudentManagement
                             var inforStudent = Regex.Split(contentEachLine, @"\s{3,}");
 
                             Student student = new Student(int.Parse(inforStudent[0]), inforStudent[1], inforStudent[2], inforStudent[3], inforStudent[4], inforStudent[5], inforStudent[6], inforStudent[7], float.Parse(inforStudent[8]));
-                            StudentsList.Add(student);
+                            _listStudent.Add(student);
                         }
                     }
                 }
